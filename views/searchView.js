@@ -1,22 +1,56 @@
 export const searchView = {
   renderSuggestions(suggestions) {
+    const suggestionsItems = suggestions.items.slice(0, 10);
+    console.log('renderSuggestions')
+    console.log(suggestionsItems)
     const container = document.getElementById('suggestions');
     container.innerHTML = '';
-    suggestions.forEach(item => {
-      const div = document.createElement('div');
-      div.textContent = item;
-      container.appendChild(div);
+
+    if (suggestionsItems.length === 0) {
+      container.classList.add('hidden');
+      return;
+    }
+
+    suggestionsItems.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = item.FullNameRus;
+      li.addEventListener('click', () => {
+        document.getElementById('searchInput').value = item.FullNameRus;
+        container.classList.add('hidden');
+      });
+      container.appendChild(li);
     });
+
+    container.classList.remove('hidden');
   },
-  toggleTheme() {
-    const current = document.body.classList.contains('dark') ? 'dark' : 'light';
-    const next = current === 'dark' ? 'light' : 'dark';
-    document.body.classList.remove(current);
-    document.body.classList.add(next);
-    localStorage.setItem('theme', next);
+
+  showLoading() {
+    document.getElementById('loadingMessage').classList.remove('hidden');
+    document.getElementById('resultTable').classList.add('hidden');
   },
-  initTheme() {
-    const theme = localStorage.getItem('theme') || 'light';
-    document.body.classList.add(theme);
+
+  hideLoading() {
+    document.getElementById('loadingMessage').classList.add('hidden');
+  },
+  renderResults(data) {
+    console.log('renderResults')
+    console.log(data)
+    this.hideLoading();
+    const table = document.getElementById('resultTable');
+    const tbody = table.querySelector('tbody');
+    tbody.innerHTML = '';
+
+    data.items.forEach(item => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${item.FullNameRus}</td>
+        <td>${item.Email}</td>
+        <td>${item.Phone}</td>
+        <td>${item.Mobile}</td>
+      `;
+      tbody.appendChild(row);
+    });
+
+    table.classList.remove('hidden');
   }
 };

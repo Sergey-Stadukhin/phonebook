@@ -1,0 +1,91 @@
+@import './variables.css';
+
+body.dark #searchBtn {
+    background: #292c49;
+    color: #f0f0f0; 
+}
+
+body.dark select {
+    background: var(--main-bg);
+    color: var(--main-text); 
+}
+
+body.dark input {
+    background: var(--main-bg);
+    color: var(--main-text); 
+    border: 1px solid rgb(118, 118, 118);
+}
+
+body.dark #suggestions {
+    background: #2e2d2d;
+    color: var(--main-text); 
+}
+
+/* Контейнер поиска */
+.search-container {
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    position: relative;
+}
+  
+.search-select {
+    flex: 1 1 150px;
+    padding: 8px 12px;
+    font-size: 14px;
+}
+  
+.search-container-with-suggestions {
+    width: 100%;
+    position: relative;
+}
+  
+.search-input {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+  
+/* Кнопка поиска */
+.search-button {
+    padding: 10px;
+    width: 20%;
+    outline: none;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    transition: background 0.3s ease;
+}
+  
+.search-button:hover {
+    background-color: #0056b3;
+}
+  
+/* Подсказки */
+#suggestions {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+}
+  
+#suggestions li {
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+  
+#suggestions li:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+}

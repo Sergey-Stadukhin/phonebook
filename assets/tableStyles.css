@@ -1,0 +1,26 @@
+@import './variables.css';
+
+.table-container {
+    margin-top: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+  
+#resultTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+  
+#resultTable th,
+#resultTable td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+body.dark #resultTable {
+    background-color: var(--table-bg);
+    color: var(--table-text)
+}

@@ -4,14 +4,40 @@
   <meta charset="UTF-8">
   <title>GSP Phonebook</title>
   <link rel="stylesheet" href="./assets/styles.css">
+  <link rel="stylesheet" href="./assets/searchStyles.css">
+  <link rel="stylesheet" href="./assets/tableStyles.css">
 </head>
 <body class="light">
   <div class="search-container">
-    <input type="text" id="searchInput" placeholder="Поиск...">
-    <div id="filters"></div>
-    <button id="searchBtn">Поиск</button>
-    <div id="suggestions"></div>
-    <button id="themeToggle">Сменить тему</button>
+    <select id="searchSelect" class="search-select">
+      <!-- хардкод, но можно получать с бэкенда справочник фильтров -->
+      <option>ФИО:</option>
+      <option>Почта:</option>
+      <option>Телефон:</option>
+      <option>Должность:</option>
+    </select>
+    <div class="search-container-with-suggestions">
+      <input type="text" id="searchInput" class="search-input" autocomplete="off" placeholder="Поиск...">
+      <ul id="suggestions" class="dropdown hidden"></ul>
+    </div>
+    <button id="searchBtn" class="search-button">Поиск</button>
+  </div>
+  <!-- Вместо кнопки лучше сделать красивый toggle, в рамках тестового сделал только функционал переключения -->
+  <button id="themeToggle">Сменить тему</button>
+  <div class="table-container">
+    <!-- Лучше сделать какой-то лоадер или скелетон, для демонстрации будет просто текст, суть подхода не меняется -->
+    <div id="loadingMessage" class="hidden">Загрузка...</div>
+    <table id="resultTable" class="hidden">
+      <thead>
+        <tr>
+          <th>ФИО</th>
+          <th>Email</th>
+          <th>Телефон</th>
+          <th>Мобильный</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
   </div>
   <script type="module" src="./main.js"></script>
 </body>

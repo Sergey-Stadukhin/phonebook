@@ -1,0 +1,17 @@
+:root {
+    --main-bg: #ffffff;
+    --main-text: #000000;
+    --button-shadow: 0 4px 12px rgba(78, 78, 78, 0.2);
+    --table-bg: #ffffff;
+    --table-text: #000000;
+    --table-border: #ccc;
+}
+  
+body.dark {
+    --main-bg: #1e1e1e;
+    --main-text: #f0f0f0;
+    --button-shadow: 0 4px 12px rgba(185, 185, 185, 0.2);
+    --table-bg: #1e1e1e;
+    --table-text: #f0f0f0;
+    --table-border: #444;
+}
