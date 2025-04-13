@@ -1,0 +1,4 @@
+body.light { background: #fff; color: #000; }
+body.dark { background: #111; color: #fff; }
+.search-container { padding: 20px; max-width: 400px; margin: auto; }
+#suggestions div { padding: 4px; border-bottom: 1px solid #ccc; cursor: pointer; }
