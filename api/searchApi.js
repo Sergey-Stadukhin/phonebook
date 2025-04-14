@@ -1,7 +1,9 @@
 // Сделал так, чтобы все отобразилось
 export async function fetchSuggestions(query, attribute) {
-  // const res = await fetch(`http://89.111.155.239:8000/search?value=${query}&attribute=${attribute || 'name'}&page=1&size=10`);
-  
+  // Падает запрос, убрать коммент, если заработает
+  // const res = await fetch(`https://89.111.155.239:8000/search?value=${query}&attribute=${attribute || 'name'}&page=1&size=10`);
+  // const data = await res.json();
+
   const data = {
     "items": [
       {
@@ -242,6 +244,7 @@ export async function fetchSuggestions(query, attribute) {
 // export async function fetchSuggestions(query, attribute) {
 //   try {
 //     const res = await fetch(`http://89.111.155.239:8000/search?value=${query}&attribute=${attribute}&page=1&size=10`);
+                              //  'http://89.111.155.239:8000/search?value=%D0%98%D0%B2%D0%B0%D0%BD&attribute=FullNameRus&page=1&size=50'
 //     if (!res.ok) {
 //       throw new Error(`Ошибка при запросе: ${res.status}`);
 //     }
