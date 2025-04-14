@@ -1,3 +1,5 @@
+import { searchModel } from '../models/searchModel.js';
+
 export const searchView = {
   renderSuggestions(suggestions) {
     const suggestionsItems = suggestions.items.slice(0, 10);
@@ -16,6 +18,7 @@ export const searchView = {
       li.textContent = item.FullNameRus;
       li.addEventListener('click', () => {
         document.getElementById('searchInput').value = item.FullNameRus;
+        searchModel.setQuery(item.FullNameRus);
         container.classList.add('hidden');
       });
       container.appendChild(li);
